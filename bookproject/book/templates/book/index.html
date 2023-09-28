@@ -18,8 +18,8 @@
     {% endfor %}
     </div>
     <div class="col-3">
-        <h2>評価順</h2>
-        {% for ranking_book in ranking_list %}
+        <h2>評価順TOP2</h2>
+        {% for ranking_book in page_obj %}
             <div class="p-4 m-4 bg-light border border-success rounded">
                 <h3 class="text-success h5">{{ ranking_book.title }}</h3>
                 <img src="{{ ranking_book.thumbnail.url }}" class="img-thumbnail"/>
@@ -27,6 +27,7 @@
                 <a href="{% url 'detail-book' ranking_book.id %}">詳細を見る</a>
             </div>
         {% endfor %}
+        {% include 'book/components/paginatin.html' %}
     </div>
     </div>
 {% endblock content %}
